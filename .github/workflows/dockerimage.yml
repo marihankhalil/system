@@ -1,8 +1,8 @@
 name: explore variables and secrets
 
 on: push
-  container_registery: docker.io
-  image_name: github-actions-nginx
+  CONTAINER_REGISTERY: docker.io
+  IMAGE_NAME: github-actions-nginx
 jobs:
   docker:
     runs-on: ubuntu-latest
