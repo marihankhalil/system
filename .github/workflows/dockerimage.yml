@@ -20,6 +20,6 @@ jobs:
      runs_on: ubuntu-latest
      steps:
      - name: Docker run
-       run: echo docker run -d -p 8080:80 $CONTAINER_REGISTERY/$DOCKER_USERNAME/$IMAGE_NAME:latest
+       run: docker run -d -p 8080:80 $CONTAINER_REGISTERY/$DOCKER_USERNAME/$IMAGE_NAME:latest
 
       
