@@ -1,6 +1,6 @@
 name: explore variables and secrets
-
 on: push
+env:
   CONTAINER_REGISTERY: docker.io
   IMAGE_NAME: github-actions-nginx
 jobs:
