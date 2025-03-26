@@ -1,5 +1,5 @@
 name: explore variables and secrets
-on: push
+on: workflow_dispatch
 env:
   CONTAINER_REGISTERY: docker.io
   IMAGE_NAME: github-actions-nginx
