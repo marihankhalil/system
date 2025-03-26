@@ -8,18 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Docker build
-      run: echo docker build -t ${{env.CONTAINER_REGISTERY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
+      run: docker build -t ${{env.CONTAINER_REGISTERY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
 
     - name: Docker login
-      run: echo docker login --username=${{vars.DOCKER_USERNAME}} --password=${{ secrets.DOCKER_PASSWORD }}
+      run: docker login --username=${{vars.DOCKER_USERNAME}} --password=${{ secrets.DOCKER_PASSWORD }}
 
     - name: Docker publish
-      run: echo docker push  ${{env.CONTAINER_REGISTERY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
+      run: docker push  ${{env.CONTAINER_REGISTERY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
   Deploy:
      needs: docker
      runs-on: ubuntu-latest
      steps:
      - name: Docker run
-       run: echo docker run -d -p 8080:80 ${{env.CONTAINER_REGISTERY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
+       run: docker run -d -p 8080:80 ${{env.CONTAINER_REGISTERY}}/${{vars.DOCKER_USERNAME}}/$IMAGE_NAME:latest
 
       
